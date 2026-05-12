@@ -1,0 +1,10 @@
+{
+	"workspace": {
+		"library": [
+			"$HOME/.local/share/lux",
+			"./luxa",
+			"/usr/share/hypr/stubs"
+		],
+		"checkThirdParty": false
+	}
+}
