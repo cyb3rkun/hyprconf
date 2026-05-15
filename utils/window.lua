@@ -1,10 +1,10 @@
 local M = {}
 
----@param source string
----@param dest string
+---@alias workspace string | number | "special:" | "name:" 
+---@param source workspace # The Source Workspace Can be Win Id, or of "special:xyz" | "name:xyz"
+---@param dest workspace # The destination workspace Can be Win Id, or of "special:xyz" | "name:xyz"
 ---@param follow boolean
 function M.move_all_win(source, dest, follow)
-	-- local dest_ws = hl.get_workspace(dest)
 	local source_ws = hl.get_workspace(source)
 	if not source_ws then
 		hl.notification.create {
