@@ -10,6 +10,7 @@ hl.bind(SUPR .. "D", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
 -- hl.bind(SUPER .. "+D", exec_path(ipc .. "launcher toggle"))
 hl.bind(SUPR .. "S", hl.dsp.exec_cmd(ipc .. "controlCenter toggle"))
 hl.bind(SUPR .. "M", hl.dsp.exec_cmd(ipc .. "settings toggle"))
+hl.bind(SUPR .. ALT .. "K", hl.dsp.exec_cmd(ipc .. "plugin:keybind-cheatsheet toggle"))
 
 -- to restart noctalia use this command, or the keybind below
 -- killall qs;qs -c noctalia-shell --no-duplicate >/dev/null 2>&1 & disown
