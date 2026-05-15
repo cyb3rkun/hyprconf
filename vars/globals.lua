@@ -1,6 +1,6 @@
 -- KEYS
-SUPER = "SUPER" -- Sets "Windows" key as main modifier
-SUPR = "SUPER+" -- Sets "Windows" key as main modifier
+SUPER = "SUPER"
+SUPR = "SUPER+"
 ALT = "ALT+"
 ALTP = "+ALT+"
 CTL = "CTRL+"
@@ -8,6 +8,7 @@ CTLP = "+CTRL+"
 SHFT = "SHIFT+"
 SHFTP = "+SHIFT+"
 
-Terminal = "wezterm"
+TERM = "wezterm"
 FileManager = "thunar"
-Menu = "hyprlauncher"
+-- I use Noctalia, so no need for custom menu
+-- Menu = "hyprlauncher"
