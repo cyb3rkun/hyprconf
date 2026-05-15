@@ -1,7 +1,7 @@
 -- ┏━━━━━━━━━━━━━━━━━━━┓
 -- ┃ TERMINAL and QUIT ┃
 -- ┗━━━━━━━━━━━━━━━━━━━┛
-hl.bind(SUPER .. " + RETURN", hl.dsp.exec_cmd(Terminal))
+hl.bind(SUPER .. " + RETURN", hl.dsp.exec_cmd(TERM))
 hl.bind(SUPER .. "+Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(SUPER .. "+E", hl.dsp.exec_cmd(FileManager))
