@@ -13,24 +13,19 @@ for i = 1, 9 do
 	}
 	::continue::
 end
--- ┏━━━━━━━━━━━━━━━━━━━━┓
--- ┃ Special Workspaces ┃
--- ┗━━━━━━━━━━━━━━━━━━━━┛
--- NOTE: special workspace for games
-hl.workspace_rule { workspace = "special:games", monitor = "DP-1" }
 
--- NOTE: special workspace for Forex (E.g MetaTrader)
-hl.workspace_rule {
-	workspace = "special:vtube",
-	monitor = "HDMI-A-2",
+-- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃ Special & Named Workspaces ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+---@type HL.WorkspaceRuleSpec[]
+local wspace_l = {
+	{ workspace = "special:games", monitor = "DP-1" },
+	{ workspace = "special:vtube", monitor = "HDMI-A-2" },
+	{ workspace = "name:Comms", monitor = "DP-2" },
+	{ workspace = "name:Laun", monitor = "DP-2" },
+	{ workspace = "name:ForX", monitor = "DP-2" },
 }
 
--- NOTE: special workspace for Communication apps
-hl.workspace_rule { workspace = "name:Comms", monitor = "DP-2" }
-
-
--- NOTE: special workspace for Launchers
--- (E.g Steam, Lutris, Heroic Games Launcher)
-hl.workspace_rule { workspace = "name:Laun", monitor = "DP-2" }
--- NOTE: special workspace for Forex (E.g MetaTrader)
-hl.workspace_rule { workspace = "name:ForX", monitor = "DP-2" }
+for _, w in ipairs(wspace_l) do
+	hl.workspace_rule(w)
+end
