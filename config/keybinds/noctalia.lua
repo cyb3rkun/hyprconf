@@ -6,10 +6,23 @@
 
 local ipc = "qs -c noctalia-shell ipc call "
 
-hl.bind(SUPER .. "+D", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
+hl.bind(SUPR .. "D", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
 -- hl.bind(SUPER .. "+D", exec_path(ipc .. "launcher toggle"))
-hl.bind(SUPER .. "+S", hl.dsp.exec_cmd(ipc .. "controlCenter toggle"))
-hl.bind(SUPER .. "+M", hl.dsp.exec_cmd(ipc .. "settings toggle"))
+hl.bind(SUPR .. "S", hl.dsp.exec_cmd(ipc .. "controlCenter toggle"))
+hl.bind(SUPR .. "M", hl.dsp.exec_cmd(ipc .. "settings toggle"))
+
+-- to restart noctalia use this command, or the keybind below
+-- killall qs;qs -c noctalia-shell --no-duplicate >/dev/null 2>&1 & disown
+
+hl.bind(
+	SUPR .. SHFT .. "N",
+	hl.dsp.exec_cmd(
+		"killall qs;"
+			.. "qs -c noctalia-shell "
+			.. "--no-duplicate "
+			.. ">/dev/null 2>&1 "
+	)
+)
 
 hl.bind(
 	"XF86AudioRaiseVolume",
