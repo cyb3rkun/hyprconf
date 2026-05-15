@@ -7,9 +7,9 @@ hl.bind(SUPER .. "+Q", hl.dsp.window.close())
 hl.bind(SUPER .. "+E", hl.dsp.exec_cmd(FileManager))
 
 -- window float, fullscreen, togglesplit
-hl.bind(SUPER .. "+V", hl.dsp.window.float { action = "toggle" })
-hl.bind(SUPER .. "+F", hl.dsp.window.fullscreen { action = "toggle" })
-hl.bind(SUPER .. SHFTP .. "I", hl.dsp.layout "togglesplit") -- dwindle only
+hl.bind(SUPR .. "V", hl.dsp.window.float { action = "toggle" })
+hl.bind(SUPR .. "F", hl.dsp.window.fullscreen { action = "toggle" })
+hl.bind(SUPR .. SHFT .. "I", hl.dsp.layout "togglesplit") -- dwindle only
 
 -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 -- ┃ Focus and Move with Window ID ┃
@@ -18,7 +18,7 @@ for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind(SUPR .. key, hl.dsp.focus { workspace = i })
 	hl.bind(
-		SUPER .. SHFTP .. key,
+		SUPR .. SHFT .. key,
 		hl.dsp.window.move { workspace = i }
 	)
 end
