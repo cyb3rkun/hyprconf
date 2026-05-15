@@ -42,6 +42,7 @@ hl.window_rule {
 	content = "game",
 	immediate = true,
 	no_anim = true,
+	tag = "+game"
 }
 
 -- ┏━━━━━━━━━━━━━━━━━┓
