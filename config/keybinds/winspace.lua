@@ -44,7 +44,7 @@ for key, name in pairs(named_workspaces) do
 	)
 end
 
--- special binding for discord
+-- special binding to peek all communication apps
 local comms_special = false
 hl.bind(SUPER .. ALTP .. "E", function()
 	require("utils.window").move_all_win(
