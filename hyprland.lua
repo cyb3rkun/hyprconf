@@ -58,6 +58,7 @@ require "config.keybinds.cmds"
 -- ┃ Window and Workspace Rules ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 require "config.window"
+require("config.windows.noctalia")
 require "config.workspace"
 
 -- ┏━━━━━━━━━━━━━━━━━┓
