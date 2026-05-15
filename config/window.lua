@@ -16,8 +16,10 @@ hl.window_rule {
 	name = "Launchers",
 	match = { class = "[Ss]team" },
 	workspace = "name:Laun silent",
-	-- focus_on_activate = false,
-	-- suppress_event = "activatefocus activate",
+	render_unfocused = true,
+	no_blur = true,
+	no_dim = true,
+	no_shadow = true,
 }
 
 -- ┏━━━━━━━━━━━━━━┓
@@ -27,6 +29,7 @@ hl.window_rule {
 	match = { initial_class = "steam_app_\\d+" },
 	content = "game",
 }
+
 hl.window_rule {
 	name = "Games",
 	match = { initial_class = "steam_app_\\d+", content = "game" },
@@ -41,13 +44,12 @@ hl.window_rule {
 	no_anim = true,
 }
 
-
 -- ┏━━━━━━━━━━━━━━━━━┓
 -- ┃ Vtubing Windows ┃
 -- ┗━━━━━━━━━━━━━━━━━┛
 hl.window_rule {
 	name = "Vtubing",
-	match = { initial_class = "(^steam_app_2079120)" },
+	match = { initial_class = "steam_app_(2079120)" },
 	workspace = "special:vtube",
 }
 
@@ -56,7 +58,7 @@ hl.window_rule {
 -- ┗━━━━━━━━━━━━━━━┛
 hl.window_rule {
 	name = "ForX",
-	match = { class = "(.*[Mm]eta[Tt]rader.*)" },
+	match = { class = "[Mm]eta\\s*[Tt]rader" },
 	workspace = "name:ForX",
 }
 
