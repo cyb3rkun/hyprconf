@@ -1,78 +1,66 @@
-package.cpath = os.getenv("HOME")
-	.. "/.local/share/lux/?.so"
-	.. ";"
-	.. package.path
-package.path = os.getenv("HOME")
-	.. "/.local/share/lux/?.lua"
-	.. ";"
-	.. package.path
--- This is an example Hyprland Lua config file.
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
--- Please note not all available settings / options are set here.
--- For a full list, see the wiki
+-- ┏━━━━━━━━━━━━━━━━━━┓
+-- ┃ Global Variables ┃
+-- ┗━━━━━━━━━━━━━━━━━━┛
+require "vars.globals"
+require "vars.colors"
 
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
+-- ┏━━━━━━━━━━━━━━━━┓
+-- ┃ Monitor Config ┃
+-- ┗━━━━━━━━━━━━━━━━┛
+require "config.monitorconf"
 
-require("vars.globals")
-require("config.noctalia")
+-- ┏━━━━━━━━━━━┓
+-- ┃ AUTOSTART ┃
+-- ┗━━━━━━━━━━━┛
+require "config.autostart"
 
-require("config.monitorconf")
-
-
----------------------
----- MY PROGRAMS ----
----------------------
-
--- Set programs that you use
-
-require("config.autostart")
-
-
--------------------------------
----- ENVIRONMENT VARIABLES ----
--------------------------------
-
+-- ┏━━━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃ ENVIRONMENT VARIABLES ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━━━┛
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-require("config.env")
+require "config.env"
 
------------------------
------ PERMISSIONS -----
------------------------
+-- ┏━━━━━━━━━━━━━┓
+-- ┃ PERMISSIONS ┃
+-- ┗━━━━━━━━━━━━━┛
+require "config.permisions"
 
-require("config.permisions")
+-- ┏━━━━━━━━━━━━━━━┓
+-- ┃ Look and Feel ┃
+-- ┗━━━━━━━━━━━━━━━┛
+require "config.general"
 
+-- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃ Mscelaneous Hyprland Settings ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+require "config.hypr_misc"
 
------------------------
----- LOOK AND FEEL ----
------------------------
+-- ┏━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃ Input Configuration ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━┛
+require "config.input"
 
-require("config.general")
+-- ┏━━━━━━━━━━━━━┓
+-- ┃ Keybindings ┃
+-- ┗━━━━━━━━━━━━━┛
+require "config.keybinds.bindings"
+require "config.keybinds.obs"
+require "config.keybinds.discord"
+require "config.keybinds.warudo"
+require "config.keybinds.noctalia"
+require "config.keybinds.winspace"
+require "config.keybinds.cmds"
 
-----------------
-----  MISC  ----
-----------------
-require("config.hypr_misc")
+-- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃ Window and Workspace Rules ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+require "config.window"
+require "config.workspace"
 
----------------
----- INPUT ----
----------------
-
-require("config.input")
-
-
----------------------
----- KEYBINDINGS ----
----------------------
-
-require("config.keybinds")
-
-
---------------------------------
----- WINDOWS AND WORKSPACES ----
---------------------------------
-require("config.window")
-require("config.workspace")
+-- ┏━━━━━━━━━━━━━━━━━┓
+-- ┃ Event Listeners ┃
+-- ┗━━━━━━━━━━━━━━━━━┛
+require "event_listeners"

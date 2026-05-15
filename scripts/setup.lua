@@ -1,13 +1,13 @@
-package.cpath = os.getenv("HOME")
+package.cpath = os.getenv "HOME"
 	.. "/.local/share/lux/?.so"
 	.. ";"
 	.. package.path
-package.path = os.getenv("HOME")
+package.path = os.getenv "HOME"
 	.. "/.local/share/lux/?.lua"
 	.. ";"
 	.. package.path
 
-local lux = require("lux")
+local lux = require "lux"
 
 ---@type {["opts"]:GlobalOpts, ["libs"]:PkgList}
 local cfg = {
