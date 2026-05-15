@@ -10,5 +10,6 @@ SHFTP = "+SHIFT+"
 
 TERM = "wezterm"
 FileManager = "thunar"
+NoctaliaIpc = "qs -c noctalia-shell ipc call "
 -- I use Noctalia, so no need for custom menu
 -- Menu = "hyprlauncher"
