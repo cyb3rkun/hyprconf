@@ -25,8 +25,8 @@ hl.config {
 	},
 
 	decoration = {
-		rounding = 1,
-		rounding_power = 00,
+		rounding = 20,
+		rounding_power = 1,
 
 		-- Change transparency of focused and unfocused windows
 		active_opacity = 1.0,
@@ -41,7 +41,7 @@ hl.config {
 
 		blur = {
 			enabled = true,
-			size = 2,
+			size = 4,
 			passes = 2,
 			vibrancy = 0.9696,
 			xray = true,
@@ -51,6 +51,9 @@ hl.config {
 	animations = {
 		enabled = false,
 	},
+	debug = {
+		disable_logs = false
+	}
 }
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/

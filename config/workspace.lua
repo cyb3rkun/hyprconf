@@ -1,17 +1,19 @@
 -- Bind workspaces in groups of 3 to monitors
-for i = 1, 9 do
-	local monitor = i <= 3 and "desc:Dell Inc. DELL SE2425HG 17LTB84"
-		or (i <= 6) and "desc:LG Electronics W2242 0x00039907"
-		or (i <= 9) and "desc:Lenovo Group Limited 0x1144 VN-66718"
+local monitors = {
+	"desc:Dell Inc. DELL SE2425HG 17LTB84",
+	"desc:LG Electronics W2242 0x00039907",
+	"desc:Lenovo Group Limited 0x1144 VN-66718",
+}
 
-	-- Guard monitor just in case
-	if not monitor then goto continue end
+hl.workspace_rule({workspace = "s[true]", gaps_out = 6})
+
+for i = 1, 9 do
+	local monitor_idx = math.ceil(i / 3)
 	hl.workspace_rule {
 		workspace = tostring(i),
-		monitor = monitor,
+		monitor = monitors[monitor_idx],
 		persistent = true,
 	}
-	::continue::
 end
 
 -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓

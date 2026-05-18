@@ -1,9 +1,11 @@
-local utils = require "utils"
-
 ---@param submap string
 hl.on("keybinds.submap", function(submap)
 	submap = submap:len() > 0 and submap or "reset"
-	utils.notify("Submap: " .. submap, 3000, "info")
+	Notify {
+		text = "Submap: " .. submap,
+		timeout = 3000,
+		icon = "info",
+	}
 end)
 
 -- Apply static tag "luancher" to steam
@@ -28,10 +30,10 @@ hl.on("window.open", function(win)
 end)
 
 ---@param win HL.Window
--- WARN: Relies on config.window to set the dynamic game* tag
--- and the content_type to work.
 hl.on("window.close", function(win)
 	---@type HL.Window[]
+	---@type HL.WindowQueryFilter
+	---
 	local games = hl.get_windows { tag = "game*" }
 
 	-- TEST: this will probably work most of the time.

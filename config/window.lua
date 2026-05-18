@@ -31,8 +31,11 @@ hl.window_rule {
 }
 
 hl.window_rule {
-	name = "Games",
-	match = { initial_class = "steam_app_\\d+", content = "game" },
+	match = {
+		initial_class = "steam_app_\\d+",
+		content = "game",
+	},
+	tag = "+game",
 	workspace = "special:games",
 	render_unfocused = true,
 	no_blur = true,
@@ -42,16 +45,26 @@ hl.window_rule {
 	content = "game",
 	immediate = true,
 	no_anim = true,
-	tag = "+game"
 }
 
 -- ┏━━━━━━━━━━━━━━━━━┓
 -- ┃ Vtubing Windows ┃
 -- ┗━━━━━━━━━━━━━━━━━┛
 hl.window_rule {
-	name = "Vtubing",
-	match = { initial_class = "steam_app_(2079120)" },
+	match = { initial_class = "steam_app_2079120" },
+	content = "game",
+}
+hl.window_rule {
+	match = { initial_class = "steam_app_2079120", content = "game" },
 	workspace = "special:vtube",
+	tag = "+vtube",
+	render_unfocused = true,
+	no_blur = true,
+	no_dim = true,
+	no_shadow = true,
+	opaque = true,
+	immediate = true,
+	no_anim = true,
 }
 
 -- ┏━━━━━━━━━━━━━━━┓

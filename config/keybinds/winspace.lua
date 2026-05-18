@@ -2,8 +2,9 @@
 -- ctrl: focus
 -- alt: toggle
 local toggle_leader = SUPER .. ALTP
-local focus = SUPER .. CTLP
+local focus_leader = SUPER .. CTLP
 local move_leader = SUPER .. SHFTP
+local bind = require("utils").bind
 
 -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 -- ┃ Special Workspace bindings ┃
@@ -37,47 +38,63 @@ local named_workspaces = {
 }
 
 for key, name in pairs(named_workspaces) do
-	hl.bind(focus .. key, hl.dsp.focus { workspace = "name:" .. name })
+	hl.bind(
+		focus_leader .. key,
+		hl.dsp.focus { workspace = "name:" .. name }
+	)
 	hl.bind(
 		move_leader .. key,
 		hl.dsp.window.move { workspace = "name:" .. name }
 	)
 end
+-- ┏━━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃ Peek Workspace By ID ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━━┛
+for i = 1, 10 do
+	local key = i % 10 -- 10 maps to key 0
+	bind(SUPR .. CTL .. key, function()
+		local w = hl.get_workspace(tostring(i))
+		local peek_name = "special:peak-" .. tostring(key)
 
--- special binding to peek all communication apps
-local comms_special = false
-hl.bind(SUPER .. ALTP .. "E", function()
-	require("utils.window").move_all_win(
-		comms_special == false and "name:Comms" or "special:comms",
-		comms_special == false and "special:comms" or "name:Comms",
-		not comms_special
-	)
-	comms_special = not comms_special
-end)
+		-- Hide if not hidden
+		if not hl.get_workspace(peek_name) then
+			hl.dispatch(
+				require("dsp").win.move_all_win(i, peek_name, true)
+			)
+		else -- Restore if hidden
+			hl.dispatch(
+				require("dsp").win.move_all_win(peek_name, i, false)
+			)
+			hl.dispatch(hl.dsp.workspace.toggle_special(peek_name))
+			hl.dispatch(hl.dsp.workspace.toggle_special(peek_name))
+		end
+	end, { desc = "Peek Workspace" .. key })
+end
 
 -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 -- ┃ Hide All Windows on active workspace ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-local ow
-local is_hidden = false
-hl.bind(SUPER .. ALTP .. "H", function()
-	local u = require "utils"
-	if not is_hidden then
-		ow = hl.get_active_workspace()
-		if not ow then
-			hl.notification.create {
-				timeout = 2000,
-				text = "Source Workspace does not exit",
-				icon = "debug",
-			}
-			return
-		end
-		u.move_all_win(ow.name, "special:hidden", false)
-		is_hidden = true
-	else
-		u.move_all_win("special:hidden", ow.name, true)
-		hl.dispatch(hl.dsp.workspace.toggle_special "hidden")
-		is_hidden = false
-		ow = nil
+bind(SUPER .. ALTP .. "H", function()
+	local acw = hl.get_active_workspace()
+	if not acw then return end
+	local hidden_name = "special:hidden-" .. acw.config_name
+
+	-- Hide if not hidden
+	if not hl.get_workspace(hidden_name) then
+		hl.dispatch(
+			require("dsp").win.move_all_win(
+				acw.config_name,
+				hidden_name,
+				false
+			)
+		)
+	else -- Restore if hidden
+		hl.dispatch(
+			require("dsp").win.move_all_win(
+				hidden_name,
+				acw.config_name,
+				true
+			)
+		)
 	end
 end)

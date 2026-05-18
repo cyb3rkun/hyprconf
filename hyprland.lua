@@ -1,3 +1,11 @@
+package.cpath = os.getenv "HOME"
+	.. "/.local/share/lux/?.so"
+	.. ";"
+	.. package.path
+package.path = os.getenv "HOME"
+	.. "/.local/share/lux/?.lua"
+	.. ";"
+	.. package.path
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
@@ -58,10 +66,11 @@ require "config.keybinds.cmds"
 -- ┃ Window and Workspace Rules ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 require "config.window"
-require("config.windows.noctalia")
+require "config.windows.noctalia"
 require "config.workspace"
 
 -- ┏━━━━━━━━━━━━━━━━━┓
 -- ┃ Event Listeners ┃
 -- ┗━━━━━━━━━━━━━━━━━┛
 require "event_listeners"
+

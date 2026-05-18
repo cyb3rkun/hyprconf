@@ -1,20 +1,20 @@
-local MacroPad = {
-	inclusive = true,
-	list = {
-		"by-tech-usb-gaming-keyboard",
-		"by-tech-usb-gaming-keyboard-consumer-control",
-		"by-tech-usb-gaming-keyboard-1",
-		"by-tech-usb-gaming-keyboard-system-control",
-	},
-}
-local window = "class:^(com.obsproject.Studio)"
-
-local keys = { "R", "1", "2", "3", "4", "5", "6", "7", "8", "9" }
-for _, key in ipairs(keys) do
-	hl.bind(
-		key,
-		hl.dsp.pass { window = window },
-		{ device = MacroPad }
-	)
-end
-
+-- local MacroPad = {
+-- 	inclusive = true,
+-- 	list = {
+-- 		"by-tech-usb-gaming-keyboard",
+-- 		"by-tech-usb-gaming-keyboard-consumer-control",
+-- 		"by-tech-usb-gaming-keyboard-1",
+-- 		"by-tech-usb-gaming-keyboard-system-control",
+-- 	},
+-- }
+-- local window = "class:^(com.obsproject.Studio)"
+--
+-- local keys = { "R", "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+-- for _, key in ipairs(keys) do
+-- 	hl.bind(
+-- 		key,
+-- 		hl.dsp.pass { window = window },
+-- 		{ device = MacroPad }
+-- 	)
+-- end
+--
