@@ -4,7 +4,6 @@ hl.monitor {
 	output = "",
 	mode = "preferred",
 	position = "auto",
-	---@diagnostic disable-next-line: assign-type-mismatch
 	scale = 1,
 }
 
