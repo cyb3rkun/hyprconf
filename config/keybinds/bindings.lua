@@ -9,7 +9,6 @@ bind(
 	hl.dsp.exec_cmd(TERM),
 	{ desc = "Launch Terminal" }
 )
-bind("SUPER + M", hl.dsp.exit())
 
 bind(
 	SUPER .. "+Q",
