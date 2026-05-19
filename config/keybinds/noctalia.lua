@@ -8,7 +8,6 @@ local ipc = "qs -c noctalia-shell ipc call "
 local bind = require("utils").bind
 
 bind(SUPR .. "D", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
--- hl.bind(SUPER .. "+D", exec_path(ipc .. "launcher toggle"))
 bind(SUPR .. "S", hl.dsp.exec_cmd(ipc .. "controlCenter toggle"))
 bind(SUPR .. "M", hl.dsp.exec_cmd(ipc .. "settings toggle"))
 bind(SUPR .. "P", hl.dsp.exec_cmd(ipc .. "sessionMenu toggle"))
